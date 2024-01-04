@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<b>Daniel's Array Notation (DANAN)</b> <br>
+For the Daniel's Array Notation, you use {} and []. <br>
+In front of the array, you put the letter <b>d</b> to recognise the written array from similar notations like BAN (Bird's Array Notation) or SAN (Strong Array Notation). <br>
+A number x in {} tells you how many zeros come after the number y which is an integer between 1 and 9. <br>
+So it's written like this: <br>
+d{x,y} <br>
+Examples: <br>
+d{7,3} = 30000000 (3e7 in scientific notation) <br>
+d{12,1} = d{12} = 1000000000000 (1e12) <br>
+<br>
+If the last number in any bracket is 1, you can omit it. Instead of d{x, 1} you can write d{x}. So d{x} = 10^x <br>
+You can also use more than one bracket: <br>
+d{{1}} = d{{1,1}} = d{10} = d{10,1} = 10000000000 (1e10) <br>
+d{{5,2}} = d{200000} = d{200000,1} = 1e200000 <br>
+d{{4,8},9} = d{80000,9} = 9e80000 <br>
+
+When you use [] or bigger, the first number in the bracket z tells you how many brackets of the brackettype, which is smaller by 1, you use. <br>
+In d[z,x,y], x tells you, how many zeros come after the number y. <br>
+d[4,3,2] = d{{{{3,2}}}} = d{{{{2000}}}} = d{{{{2000,1}}}} = d{{{1e2000}}} = d{{{1e2000, 1}}} = d{{1ee2000}} = d{1eee2000} = 1eeee2000 <br>
+d[8,7] = d[8,7,1] = d{{{{{{{{7,1}}}}}}}} = 1eeeeeeee7 <br>
+d[3,1,5] = d{{{1,5}}} = d{{{50}}} = d{{{50,1}}} = d{{1e50}} = d{{1e50,1}} = d{1ee50} = 1eee50 <br>
+So you use [a,b,c] if there is an amount of <i>a</i> brackets {}. Inside these brackets, there is <i>b, c</i> <br>
+<br>
+Because two bracket types aren't a lot, you can create more bracket types with the help of #. <br>
+For example is d#1{5} the same as d{5}. <br>
+d#2{3} would be d#2{3, 1} = d[[[1]]] = d[[[1,1]]] = d[[10]] = d[[10,1]] = d[10000000000] = d[1e10] = d[1e10,1] = 1 in 1e10 {}. <br>
+Hence, the sequence of the brackettypes is: <br>
+{}; []; #2{}; #2[]; #3{}; #3[]; ... ; #10{} = (#{1}){} <br>
+You use the brackets () so that you know what the # refers to. These brackets are used as soon as the Daniel's Array Notatoin is inside the bracket type. <br>
+d(#(#2[5])) <br>
+d(#(#(#9{6,2})))[8,3] <br>
+<br>
+The most important rules of the Daniel's Array Notation are: <br>
+- In the front there is a <b>d</b>. <br>
+- The bracket types are {} and [] and later (). <br>
+- Numbers get seperated by a <b>,</b> <br>
+- When the bracket type is greater than [], there will be #x in front of the brackets while x is an integer ≥ 2. <br>
+- If the first number in a bracket ≥ [] is 1, the brackettype gets decreased by 1 and the first number <i>1</i> gets removed. <br>
+- If the last number in any bracket is 1, you can omit it. This rule only applies if there are 2 or more numbers in a bracket. <br>
+- Inside a bracket, it is suggested to use a maximum of four numbers (as soon as it's possible) to not make the notation look complicated. <br>
+- The first number in a bracket can be any integer. <br>
+- The other numbers in a bracket can be any integer between 1 and 9.  <br>
+- You can only use bracket types which are smaller or equal to the bracket type where they are inside. <br>
+- In bracket types ≥ #1{}, the number y should be ≥ 2, when x is 2, else the output would be 10 in the bracket type which is smaller by 1. This only applies to d#1{x,y} or bigger bracket types. <br>
+  Examples: <br>
+  d#1{2} = d[[1]] = d[{1}] = d[10] = E1#10 <br>
+  d#1{2,2} = d[[2]] = d[{{1}}] = d[{10}] = E1#E10 <br>
+  <br>
+  <i> last changed: 01. 01. 2024, 4:34 pm UTC </i> <br>
+  <a href="https://daniels-array-notation-information.danibron.repl.co/">Background and information about the notation</a>
+  <script src="script.js"></script> <br>
+<a href="https://daniels-array-notation-number-list.danibron.repl.co/">Number list</a>
+  <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>
